@@ -10,7 +10,7 @@
 
 Команды для настройки:
 ```
-R1:
+R1 Basic Settings:
 Router>enable
 Router#configure terminal
 Router(config)#hostname R1
@@ -32,8 +32,8 @@ Enter TEXT message.  End with the character '^'.
 ##########################################
 ^
 R1(config)#end
-R1#write
 R1#clock set 18:35:00 22 FEBRUARY 2022
+R1#write
 
 R1(config)#interface ethernet 0/0.3
 R1(config-subif)#description GW VLAN 3
@@ -48,5 +48,37 @@ R1(config-subif)#exit
 R1(config)#interface ethernet 0/0.8
 R1(config-subif)#exit
 ```
-
-S1
+```
+S1 and S2 Basic Settings:
+Switch>enable
+Switch#configure terminal
+Switch(config)#hostname S1
+S1(config)#no ip domain-lookup
+S1(config)#enable secret class
+S1(config)#line console 0
+S1(config-line)#password cisco
+S1(config-line)#login
+S1(config-line)#line vty 0 4
+S1(config-line)#password cisco
+S1(config-line)#login
+S1(config-line)#service password-encryption
+S1(config)#banner motd ^
+Enter TEXT message.  End with the character '^'.
+##########################################
+#                                        #
+#        Authorised Access Only          #
+#                                        #
+##########################################
+^
+S1(config)#end
+S1#clock set 18:35:00 22 FEBRUARY 2022
+S1#write
+```
+```
+PC-A config:
+ip 192.168.3.3 255.255.255.0 192.168.3.1
+```
+```
+PC-B config:
+ip 192.168.4.3 255.255.255.0 192.168.4.1
+```
