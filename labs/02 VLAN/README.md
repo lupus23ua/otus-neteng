@@ -11,18 +11,42 @@
 Команды для настройки:
 ```
 R1:
-Router(config)#interface ethernet 0/0.3
-Router(config-subif)#description GW VLAN 3
-Router(config-subif)#encapsulation dot1Q 3
-Router(config-subif)#ip add 192.168.3.1 255.255.255.0
-Router(config-subif)#exit
-Router(config)#interface ethernet 0/0.4        
-Router(config-subif)#description GW VLAN 4
-Router(config-subif)#encapsulation dot1Q 4
-Router(config-subif)#ip add 192.168.4.1 255.255.255.0
-Router(config-subif)#exit
-Router(config)#interface ethernet 0/0.8
-Router(config-subif)#exit
+Router>enable
+Router#configure terminal
+Router(config)#hostname R1
+R1(config)#no ip domain-lookup
+R1(config)#enable secret class
+R1(config)#line console 0
+R1(config-line)#password cisco
+R1(config-line)#login
+R1(config-line)#line vty 0 4
+R1(config-line)#password cisco
+R1(config-line)#login
+R1(config-line)#service password-encryption
+R1(config)#banner motd ^
+Enter TEXT message.  End with the character '^'.
+##########################################
+#                                        #
+#        Authorised Access Only          #
+#                                        #
+##########################################
+^
+R1(config)#end
+R1#write
+R1#clock set 18:35:00 22 FEBRUARY 2022
+
+R1(config)#interface ethernet 0/0.3
+R1(config-subif)#description GW VLAN 3
+R1(config-subif)#encapsulation dot1Q 3
+R1(config-subif)#ip add 192.168.3.1 255.255.255.0
+R1(config-subif)#exit
+R1(config)#interface ethernet 0/0.4        
+R1(config-subif)#description GW VLAN 4
+R1(config-subif)#encapsulation dot1Q 4
+R1(config-subif)#ip add 192.168.4.1 255.255.255.0
+R1(config-subif)#exit
+R1(config)#interface ethernet 0/0.8
+R1(config-subif)#exit
 ```
 
 S1
