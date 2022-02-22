@@ -66,14 +66,6 @@ S1#clock set 18:35:00 22 FEBRUARY 2022
 S1#write
 ```
 ```
-PC-A config:
-ip 192.168.3.3 255.255.255.0 192.168.3.1
-```
-```
-PC-B config:
-ip 192.168.4.3 255.255.255.0 192.168.4.1
-```
-```
 S1 VLAN configuration:
 S1#configure terminal
 S1(config)#vlan 3
@@ -182,6 +174,14 @@ Ethernet0/1                unassigned      YES unset  administratively down down
 Ethernet0/2                unassigned      YES unset  administratively down down
 Ethernet0/3                unassigned      YES unset  down                  down
 R1#write
+```
+```
+PC-A config:
+ip 192.168.3.3 255.255.255.0 192.168.3.1
+```
+```
+PC-B config:
+ip 192.168.4.3 255.255.255.0 192.168.4.1
 ```
 ```
 Testing PC-A connection:
