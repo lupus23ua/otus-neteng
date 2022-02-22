@@ -1,18 +1,18 @@
 ## [Задание](https://github.com/lupus23ua/otus-neteng/blob/main/labs/02%20VLAN/4.2.8%20Lab%20-%20Configure%20Router-on-a-Stick%20Inter-VLAN%20Routing.docx): настроить "роутер на палочке" и Inter-VLAN маршрутизацию.
 
-Топология в EVE-NG:
+###### Топология в EVE-NG:
 
 ![](https://github.com/lupus23ua/otus-neteng/blob/main/labs/02%20VLAN/LAB02-EVE-TOPO.png)
 
-Таблица ip-адресов:
+###### Таблица ip-адресов:
 
 ![](https://github.com/lupus23ua/otus-neteng/blob/main/labs/02%20VLAN/LAB02-ADDRESS-TABLE.png)
 
-Таблица VLAN:
+###### Таблица VLAN:
 
 ![](https://github.com/lupus23ua/otus-neteng/blob/main/labs/02%20VLAN/LAB02-VLAN-TABLE.png)
 
-Команды для настройки:
+###### Команды для настройки:
 ###### R1 Basic settings:
 ```
 Router>enable
@@ -66,8 +66,8 @@ S1(config)#end
 S1#clock set 18:35:00 22 FEBRUARY 2022
 S1#write
 ```
+###### S1 VLAN configuration:
 ```
-## S1 VLAN configuration:
 S1#configure terminal
 S1(config)#vlan 3
 S1(config-vlan)#name Management
@@ -108,8 +108,9 @@ VLAN Name                             Status    Ports
 1005 trnet-default                    act/unsup
 S1#write
 ```
+
+###### S2 VLAN configuration:
 ```
-## S2 VLAN configuration:
 S2#configure terminal
 S2(config)#vlan 3
 S2(config-vlan)#name Management
@@ -150,8 +151,9 @@ VLAN Name                             Status    Ports
 1005 trnet-default                    act/unsup
 S2#write
 ```
+
+###### R1 Routing configuration:
 ```
-## R1 Routing configuration:
 R1#configure terminal
 R1(config)#interface ethernet 0/3
 R1(config-if)#no shutdown
@@ -176,16 +178,17 @@ Ethernet0/2                unassigned      YES unset  administratively down down
 Ethernet0/3                unassigned      YES unset  down                  down
 R1#write
 ```
+
+###### PC-A and PC-B IP configuration:
 ```
-PC-A IP configuration:
 ip 192.168.3.3 255.255.255.0 192.168.3.1
 ```
 ```
-PC-B IP configuration:
 ip 192.168.4.3 255.255.255.0 192.168.4.1
 ```
+
+###### Testing PC-A connection:
 ```
-## Testing PC-A connection:
 VPCS> show ip
 NAME        : VPCS[1]
 IP/MASK     : 192.168.3.3/24
@@ -212,11 +215,11 @@ VPCS> trace 192.168.4.3 -P 1
 trace to 192.168.4.3, 8 hops max (ICMP), press Ctrl+C to stop
  1   192.168.3.1   1.934 ms  1.059 ms  1.369 ms
  2   192.168.4.3   2.651 ms  1.775 ms  1.319 ms
+```
 
 
+###### Testing PC-B connection:
 ```
-```
-## Testing PC-B connection:
 VPCS> show ip
 NAME        : VPCS[1]
 IP/MASK     : 192.168.4.3/24
