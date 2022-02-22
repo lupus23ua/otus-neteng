@@ -1,4 +1,4 @@
-## Задание: настроить "роутер на палочке" и Inter-VLAN маршрутизацию.
+## [Задание](https://github.com/lupus23ua/otus-neteng/blob/main/labs/02%20VLAN/4.2.8%20Lab%20-%20Configure%20Router-on-a-Stick%20Inter-VLAN%20Routing.docx): настроить "роутер на палочке" и Inter-VLAN маршрутизацию.
 
 Топология в EVE-NG:
 
