@@ -14,7 +14,7 @@
 
 Команды для настройки:
 ```
-R1 Basic Settings:
+## R1 Basic settings:
 Router>enable
 Router#configure terminal
 Router(config)#hostname R1
@@ -40,7 +40,7 @@ R1#clock set 18:35:00 22 FEBRUARY 2022
 R1#write
 ```
 ```
-S1 and S2 Basic Settings:
+## S1 and S2 sasic Settings:
 Switch>enable
 Switch#configure terminal
 Switch(config)#hostname S1
@@ -66,7 +66,7 @@ S1#clock set 18:35:00 22 FEBRUARY 2022
 S1#write
 ```
 ```
-S1 VLAN configuration:
+## S1 VLAN configuration:
 S1#configure terminal
 S1(config)#vlan 3
 S1(config-vlan)#name Management
@@ -108,7 +108,7 @@ VLAN Name                             Status    Ports
 S1#write
 ```
 ```
-S2 VLAN configuration:
+## S2 VLAN configuration:
 S2#configure terminal
 S2(config)#vlan 3
 S2(config-vlan)#name Management
@@ -150,7 +150,7 @@ VLAN Name                             Status    Ports
 S2#write
 ```
 ```
-R1 Routing configuration:
+## R1 Routing configuration:
 R1#configure terminal
 R1(config)#interface ethernet 0/3
 R1(config-if)#no shutdown
@@ -176,15 +176,15 @@ Ethernet0/3                unassigned      YES unset  down                  down
 R1#write
 ```
 ```
-PC-A config:
+PC-A IP configuration:
 ip 192.168.3.3 255.255.255.0 192.168.3.1
 ```
 ```
-PC-B config:
+PC-B IP configuration:
 ip 192.168.4.3 255.255.255.0 192.168.4.1
 ```
 ```
-Testing PC-A connection:
+## Testing PC-A connection:
 VPCS> show ip
 NAME        : VPCS[1]
 IP/MASK     : 192.168.3.3/24
@@ -215,7 +215,7 @@ trace to 192.168.4.3, 8 hops max (ICMP), press Ctrl+C to stop
 
 ```
 ```
-Testing PC-B connection:
+## Testing PC-B connection:
 VPCS> show ip
 NAME        : VPCS[1]
 IP/MASK     : 192.168.4.3/24
