@@ -2,15 +2,15 @@
 
 Топология в EVE-NG:
 
-![](labs/02 VLAN/LAB02-EVE-TOPO.png)
+![](https://github.com/lupus23ua/otus-neteng/blob/main/labs/02%20VLAN/LAB02-EVE-TOPO.png)
 
 Таблица ip-адресов:
 
-![](labs/02 VLAN/LAB02-ADDRESS-TABLE.png)
+![](https://github.com/lupus23ua/otus-neteng/blob/main/labs/02%20VLAN/LAB02-ADDRESS-TABLE.png)
 
 Таблица VLAN:
 
-![](labs/02 VLAN/LAB02-VLAN-TABLE.png)
+![](https://github.com/lupus23ua/otus-neteng/blob/main/labs/02%20VLAN/LAB02-VLAN-TABLE.png)
 
 Команды для настройки:
 ```
