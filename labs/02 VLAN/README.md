@@ -13,8 +13,8 @@
 ![](https://github.com/lupus23ua/otus-neteng/blob/main/labs/02%20VLAN/LAB02-VLAN-TABLE.png)
 
 Команды для настройки:
+###### R1 Basic settings:
 ```
-## R1 Basic settings:
 Router>enable
 Router#configure terminal
 Router(config)#hostname R1
@@ -39,8 +39,9 @@ R1(config)#end
 R1#clock set 18:35:00 22 FEBRUARY 2022
 R1#write
 ```
+
+###### S1 and S2 sasic Settings:
 ```
-## S1 and S2 sasic Settings:
 Switch>enable
 Switch#configure terminal
 Switch(config)#hostname S1
