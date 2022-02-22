@@ -203,6 +203,10 @@ VPCS> ping 192.168.4.3
 84 bytes from 192.168.4.3 icmp_seq=1 ttl=63 time=2.191 ms
 84 bytes from 192.168.4.3 icmp_seq=2 ttl=63 time=3.418 ms
 
+VPCS> ping 192.168.3.12
+84 bytes from 192.168.3.12 icmp_seq=1 ttl=255 time=1.419 ms
+84 bytes from 192.168.3.12 icmp_seq=2 ttl=255 time=2.356 ms
+
 VPCS> trace 192.168.4.3 -P 1
 trace to 192.168.4.3, 8 hops max (ICMP), press Ctrl+C to stop
  1   192.168.3.1   1.934 ms  1.059 ms  1.369 ms
@@ -229,6 +233,10 @@ VPCS> ping 192.168.4.1
 VPCS> ping 192.168.3.3
 84 bytes from 192.168.3.3 icmp_seq=1 ttl=63 time=3.990 ms
 84 bytes from 192.168.3.3 icmp_seq=2 ttl=63 time=4.370 ms
+
+VPCS> ping 192.168.3.12
+84 bytes from 192.168.3.12 icmp_seq=1 ttl=254 time=2.545 ms
+84 bytes from 192.168.3.12 icmp_seq=2 ttl=254 time=4.047 ms
 
 VPCS> trace 192.168.3.3 -P 1
 trace to 192.168.3.3, 8 hops max (ICMP), press Ctrl+C to stop
