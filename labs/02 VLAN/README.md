@@ -40,7 +40,7 @@ R1#clock set 18:35:00 22 FEBRUARY 2022
 R1#write
 ```
 
-###### S1 and S2 sasic Settings:
+###### S1 and S2 Basic settings:
 ```
 Switch>enable
 Switch#configure terminal
