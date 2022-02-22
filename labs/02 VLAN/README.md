@@ -8,6 +8,10 @@
 
 ![](https://github.com/lupus23ua/otus-neteng/blob/main/labs/02%20VLAN/LAB02-ADDRESS-TABLE.png)
 
+Таблица VLAN:
+
+![](https://github.com/lupus23ua/otus-neteng/blob/main/labs/02%20VLAN/LAB02-VLAN-TABLE.png)
+
 Команды для настройки:
 ```
 R1 Basic Settings:
@@ -102,6 +106,7 @@ VLAN Name                             Status    Ports
 ---- -------------------------------- --------- -------------------------------
 1    default                          active
 3    Management                       active    Et0/1
+4    Operations                       active
 7    ParkingLot                       active    Et0/0
 8    Native                           active
 1002 fddi-default                     act/unsup
