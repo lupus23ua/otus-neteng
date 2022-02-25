@@ -217,7 +217,6 @@ trace to 192.168.4.3, 8 hops max (ICMP), press Ctrl+C to stop
  2   192.168.4.3   2.651 ms  1.775 ms  1.319 ms
 ```
 
-
 ###### Testing PC-B connection:
 ```
 VPCS> show ip
