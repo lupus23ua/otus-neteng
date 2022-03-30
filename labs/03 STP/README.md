@@ -8,6 +8,8 @@
 
 ![](https://github.com/lupus23ua/otus-neteng/blob/main/labs/03%20STP/address%20table.png)
 
+## [Экспорт лабораторной в eve-ng](https://github.com/lupus23ua/otus-neteng/blob/main/labs/03%20STP/Lab-03_STP-eve-ng.zip)
+
 ## Часть 1: Создание сети и настройка основных параметров устройства
 ### SW1-SW3 Basic settings:
 ```
