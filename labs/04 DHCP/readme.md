@@ -1,8 +1,8 @@
-## [Задание 1](https://github.com/lupus23ua/otus-neteng/blob/main/labs/04%20DHCP/7.4.2%20Lab%20-%20Implement%20DHCPv4.docx): Настроить DHCPv4.
+## [Задание 1](7.4.2%20Lab%20-%20Implement%20DHCPv4.docx): Настроить DHCPv4.
 
 ###### Топология в EVE-NG:
 
-![](https://github.com/lupus23ua/otus-neteng/blob/main/labs/03%20STP/topology.png)
+![](topology.png)
 
 ### Таблица ip-адресов:
 | Device	| Interface	| IP Address	| Subnet Mask	| Default Gateway |
