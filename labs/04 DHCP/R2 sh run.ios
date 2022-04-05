@@ -125,13 +125,13 @@ control-plane
 !
 !
 !
-banner motd ^C
+banner motd ^
 ##########################################
 #                                        #
 #        Authorised Access Only          #
 #                                        #
 ##########################################
-^C
+^
 !
 line con 0
  exec-timeout 0 0
