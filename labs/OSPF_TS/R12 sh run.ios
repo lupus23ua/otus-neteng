@@ -1,0 +1,29 @@
+R12#sh run
+!
+hostname R12
+!
+!
+ip cef
+no ipv6 cef
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface Ethernet0/0
+ shutdown
+!
+interface Ethernet0/1
+ shutdown
+!
+interface Ethernet0/2
+ bandwidth 100
+!
+interface Ethernet0/3
+ bandwidth 100
+!
+router ospf 1
+ router-id 0.0.0.12
+ network 4.0.0.0 0.0.0.255 area 0
+ network 10.0.0.0 0.0.0.255 area 0
+!
+ip forward-protocol nd

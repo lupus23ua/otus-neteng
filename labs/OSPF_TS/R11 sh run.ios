@@ -1,0 +1,30 @@
+R11#sh run
+! Last configuration change at 17:58:50 EET Tue Apr 5 2022
+!
+hostname R11
+
+!
+ip cef
+no ipv6 cef
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface Ethernet0/0
+ bandwidth 100
+!
+interface Ethernet0/1
+!
+interface Ethernet0/2
+!
+interface Ethernet0/3
+!
+router ospf 1
+ router-id 0.0.0.11
+ redistribute connected subnets
+ redistribute static subnets
+!
+ip forward-protocol nd
+!
+ip route 0.0.0.0 0.0.0.0 100.64.0.9
+ip route 100.100.100.100 255.255.255.255 100.64.0.9

@@ -1,0 +1,28 @@
+R2#sh run
+!
+hostname R2
+!
+ip cef
+no ipv6 cef
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface Ethernet0/0
+!
+interface Ethernet0/1
+!
+interface Ethernet0/2
+!
+interface Ethernet0/3
+ shutdown
+!
+router ospf 1
+ router-id 2.2.2.2
+ area 10 stub
+ area 20 stub
+ network 1.0.0.0 0.0.0.255 area 0
+ network 3.0.0.0 0.0.0.255 area 0
+ network 20.0.0.0 0.0.0.255 area 20
+!
+ip forward-protocol nd
