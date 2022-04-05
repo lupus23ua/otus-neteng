@@ -49,7 +49,7 @@ Record the first IP address in the Addressing Table for R1 e0/1.200. Record the 
 Subnet C: 192.168.1.96/28  
 Record the first IP address in the Addressing Table for R2 e0/1.
 
-### R1-R2 basic settings:
+### баовые настройки R1-R2:
 ```
 enable
 configure terminal
@@ -110,7 +110,7 @@ end
 clock set 17:30:00 01 APRIL 2022
 write
 ```
-### R1 inter-VLAN routing settings and default route:
+### настройка адресов саб-интерфейсов и шлюза по умолчанию на R1
 ```
 interface ethernet 0/1
 no shutdown
@@ -129,7 +129,7 @@ ip route 0.0.0.0 0.0.0.0 10.0.0.2
 end
 write
 ```
-### R2 routing settings:
+### настройки маршрутизации на R2
 ```
 interface ethernet 0/1
 ip address 192.168.1.97 255.255.255.240
@@ -138,6 +138,7 @@ ip route 0.0.0.0 0.0.0.0 10.0.0.1
 end
 write
 ```
+#### Проверка
 ```
 R2#ping 192.168.1.1
 Type escape sequence to abort.
@@ -145,7 +146,7 @@ Sending 5, 100-byte ICMP Echos to 192.168.1.1, timeout is 2 seconds:
 !!!!!
 Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/2 ms
 ```
-### S1-S2 basic settings:
+### базовые настройки S1-S2
 ```
 enable
 configure terminal
@@ -173,7 +174,7 @@ end
 clock set 17:52:00 01 APRIL 2022
 write
 ```
-### S1-S2 VLAN and routing settings:
+### S1-S2 настрокйи VLAN и маршрутизации
 #### S1
 ```
 vlan 100
@@ -435,7 +436,7 @@ Sending 5, 100-byte ICMP Echos to 2001:DB8:ACAD:3::1, timeout is 2 seconds:
 !!!!!
 Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
 ```
-## Получение IPv6 GUA на VPC1 через алгоритм SLAAC
+### Получение IPv6 GUA на VPC1 через алгоритм SLAAC
 ```
 VPCS> ip auto
 GLOBAL SCOPE      : 2001:db8:acad:1:2050:79ff:fe66:6805/64
@@ -443,7 +444,7 @@ ROUTER LINK-LAYER : aa:bb:cc:00:01:10
 ```
 - Q: Откуда была взята хостовая часть адреса?  
   - A: Из алгоритма генерации адресов c помощью EUI-64
-## Настройка и проверка DHCPv6 сервера на R1
+### Настройка и проверка DHCPv6 сервера на R1
 ```
 ipv6 dhcp pool R1-STATELESS
 dns-server 2001:db8:acad::254
@@ -453,7 +454,7 @@ ipv6 nd other-config-flag
 ipv6 dhcp server R1-STATELESS
 ```
 ### Проверка получения настроек IPv6 на компьютере с windows  
-### (была задействована домашняя виртуалка, поскольку VPC в EVE-NG не поддерживают получение адреса по IPv6 DHCP)
+### (была задействована домашняя виртуалка, поскольку VPC в EVE-NG не поддерживает получение адреса по IPv6 DHCP)
 ```
 C:\Users\Zoom
 λ ipconfig /all
