@@ -16,8 +16,8 @@
 ||e0/1|192.168.1.97|255.255.255.240|N/A|
 |S1|VLAN 200|192.168.1.66|255.255.255.192|192.168.1.65|
 |S2|VLAN 1|192.168.1.98|255.255.255.240|192.168.1.97|
-|VPC1|DHCP|DHCP|DHCP|
-|VPC2|DHCP|DHCP|DHCP|
+|VPC1|NIC|DHCP|DHCP|DHCP|
+|VPC2|NIC|DHCP|DHCP|DHCP|
 
 ### Таблица VLAN:
 | VLAN	| Name	|Interface Assigned|
@@ -49,7 +49,7 @@ Record the first IP address in the Addressing Table for R1 e0/1.200. Record the 
 Subnet C: 192.168.1.96/28  
 Record the first IP address in the Addressing Table for R2 e0/1.
 
-### баовые настройки R1-R2:
+### Баовые настройки R1-R2:
 ```
 enable
 configure terminal
@@ -110,7 +110,7 @@ end
 clock set 17:30:00 01 APRIL 2022
 write
 ```
-### настройка адресов саб-интерфейсов и шлюза по умолчанию на R1
+### Настройка адресов саб-интерфейсов и шлюза по умолчанию на R1
 ```
 interface ethernet 0/1
 no shutdown
@@ -129,7 +129,7 @@ ip route 0.0.0.0 0.0.0.0 10.0.0.2
 end
 write
 ```
-### настройки маршрутизации на R2
+### Настройки маршрутизации на R2
 ```
 interface ethernet 0/1
 ip address 192.168.1.97 255.255.255.240
@@ -146,7 +146,7 @@ Sending 5, 100-byte ICMP Echos to 192.168.1.1, timeout is 2 seconds:
 !!!!!
 Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/2 ms
 ```
-### базовые настройки S1-S2
+### Базовые настройки S1-S2
 ```
 enable
 configure terminal
@@ -174,7 +174,7 @@ end
 clock set 17:52:00 01 APRIL 2022
 write
 ```
-### S1-S2 настрокйи VLAN и маршрутизации
+### Настрокйи VLAN и маршрутизации на S1-S2
 #### S1
 ```
 vlan 100
@@ -224,8 +224,7 @@ Success rate is 100 percent (5/5), round-trip min/avg/max = 2/2/5 ms
   - A: Компьютеры будут назначать адреса из диапазона 169.254.0.0/16
 
 ## Часть 2: Настройка и проверка DHCPv4 сервера на R1
-#### Настройка DHCP-сервера
-
+### Настройка DHCP-сервера
 ```
 ip dhcp excluded-address 192.168.1.1 192.168.1.5
 ip dhcp excluded-address 192.168.1.97 192.168.1.101
@@ -302,6 +301,7 @@ DHCPNAK              0
 VPCS> ip dhcp -r
 DDORA IP 192.168.1.6/26 GW 192.168.1.1
 ```
+#### Проверка
 ```
 VPCS> ping 10.0.0.2
 
@@ -395,7 +395,7 @@ DHCPACK              0
 DHCPNAK              0
 ```
 ## [Задание 2](8.5.1%20Lab%20-%20Configure%20DHCPv6.docx): Настроить DHCPv6.
-Используется топология и базовые настройки из задания 1
+Была использована топология и базовые настройки из Задания 1
 ### Таблица адресов
 |Device|Interface|IPv6 Addresses|
 |-|-|-|
@@ -428,7 +428,7 @@ ipv6 address fe80::1 link-local
 ipv6 address 2001:db8:acad:3::1/64
 ipv6 route ::/0 2001:db8:acad:2::1
 ```
-### Проверка
+#### Проверка
 ```
 R1#ping 2001:db8:acad:3::1
 Type escape sequence to abort.
@@ -453,8 +453,8 @@ interface ethernet 0/1.100
 ipv6 nd other-config-flag
 ipv6 dhcp server R1-STATELESS
 ```
-### Проверка получения настроек IPv6 на компьютере с windows  
-### (была задействована домашняя виртуалка, поскольку VPC в EVE-NG не поддерживает получение адреса по IPv6 DHCP)
+#### Проверка получения настроек IPv6 на компьютере с windows  
+#### (была задействована домашняя виртуалка, поскольку VPC в EVE-NG не поддерживает получение адреса по IPv6 DHCP)
 ```
 C:\Users\Zoom
 λ ipconfig /all
@@ -488,7 +488,7 @@ C:\Users\Zoom
    Список поиска DNS-суффиксов подключения :
                                        STATELESS.com
 ```
-### Проверка связи пингом e0/1 R2
+#### Проверка связи пингом e0/1 R2
 ```
 C:\Users\Zoom
 λ ping 2001:db8:acad:3::1
@@ -550,7 +550,7 @@ interface ethernet 0/1
 ipv6 nd managed-config-flag
 ipv6 dhcp relay destination 2001:db8:acad:2::1 e0/0
 ```
-### Проверка получения настроек на виртуалке с windows
+#### Проверка получения настроек на виртуалке с windows
 ```
 C:\Users\Zoom
 λ ipconfig /all
@@ -587,7 +587,7 @@ C:\Users\Zoom
    Список поиска DNS-суффиксов подключения :
                                        STATEFUL.com
 ```
-### Проверка пингом до e0/1.100
+#### Проверка пингом до e0/1.100
 ```
 C:\Users\Zoom
 λ ping 2001:db8:acad:1::1
